@@ -6,19 +6,20 @@ Instructions to run:
 * retrieve the API key and API secret from an authorized HouseCanary account
 * sign in to AWS under the relevant IAM user or use the following instructions: https://docs.aws.amazon.com/apprunner/latest/dg/setting-up.html
 * create an apprunner service via the AWS console
-* select Source code repository for Repository type
-* click Add new, provide oauth access
+* select 'Source code repository' for Repository type
+* click 'Add new', provide Github oauth access
 * create Connection name 'HometapAPI' and click 'Install another'
 * give access only to the relevant Github repository 'HometapAPI'
 * branch should be set to main
-* choose Manual under Deployment trigger and click Next
-* choose Python3 for Runtime
+* choose 'Manual' under Deployment trigger and click 'Next'
+* choose 'Python3' for Runtime
 * 'pip install -r requirements.txt' for Build command
 * 'uvicorn main:app' for Start command
-* HometapAPI for Service name
-* 1vCPU & 2GB RAM
+* 'HometapAPI' for Service name
 * enter Environment variables APIKEY : {the API key} & APISECRET : {the API secret} 
-* 
+* leave all other options as they are and click 'Next'
+* click 'Create & deploy'
+* spinup may take up to 6 minutes
 
 NEXT STEPS - Considerations for further development
 * HouseCanary address supports unit, state, and city but is not implemented
