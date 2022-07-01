@@ -1,4 +1,5 @@
 import os
+import logging
 import requests
 import uvicorn
 from fastapi import FastAPI
@@ -18,7 +19,7 @@ async def has_septic(address: str = '', zipcode: str = ''):
         sewer_type = resp.json()['property/details']['result']['property']['sewer']
         return {'septic': True if sewer_type == 'Septic' else False}
     except Exception as e:
-        print(resp, e) if 'resp' in locals() else print(e)
+        logging.error(f'{resp}, {e}') if 'resp' in locals() else logging.error(f'{e}')
         return {'septic': False}
 
 
